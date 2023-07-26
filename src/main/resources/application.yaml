@@ -1,0 +1,30 @@
+server:
+  port: 8081
+#//@ZYL： ↑*-8081为对应后端修改  ；而另外8080为前端（则∝Nginx  !zok ）的展示页面~       ！    /dj
+spring:
+  application:
+    name: mpp
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mpp?useSSL=false&serverTimezone=UTC
+    purchasername: root
+    password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+#    password: 123456
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略非空字段
+mybatis-plus:
+  type-aliases-package: com.mpp.entity # 别名扫描包
+logging:
+  level:
+    com.mpp: debug
+  pattern:
+    dateformat: mm:ss.SSS
